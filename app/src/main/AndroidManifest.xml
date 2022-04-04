@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlarmanoApp">
+
+        <activity
+            android:name=".RedtagActivity"
+            android:label="@string/redtag"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

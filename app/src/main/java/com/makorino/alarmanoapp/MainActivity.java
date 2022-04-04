@@ -1,11 +1,16 @@
 package com.makorino.alarmanoapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -73,5 +78,28 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.top_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menu_redtag:
+                //Toast.makeText(this, "Red Tagger Here", Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(MainActivity.this, RedtagActivity.class);
+                startActivity(i);
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

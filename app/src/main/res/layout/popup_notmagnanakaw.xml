@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FF00">
+    android:background="#00B300">
 
     <ImageView
         android:id="@+id/infoIcon"
@@ -15,8 +15,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        app:srcCompat="@android:drawable/ic_dialog_info" />
+        app:srcCompat="@drawable/ic_check"
+        app:tint="@color/white"
+        />
 
     <TextView
         android:id="@+id/tv_notmagnanakaw"
@@ -38,7 +39,7 @@
         android:layout_width="240dp"
         android:backgroundTint="@color/white"
         android:text="Dismiss"
-        android:textColor="#00FF00"
+        android:textColor="#00B300"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
