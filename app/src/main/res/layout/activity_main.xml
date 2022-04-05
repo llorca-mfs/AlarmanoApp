@@ -24,4 +24,34 @@
         app:layout_constraintTop_toBottomOf="@id/btn_magnanakaw"
         android:text="Hindi Magnanakaw"/>
 
+    <EditText
+        android:id="@+id/et_inputfield"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter text here"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_notmagnanakaw" />
+
+    <Button
+        android:id="@+id/btn_redtag"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:text="Red Tag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_inputfield" />
+
+    <TextView
+        android:id="@+id/tv_nfccontents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_redtag" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
