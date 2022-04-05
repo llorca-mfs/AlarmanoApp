@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //NFC write stuff
-        /*
+
         //context = this;
         binding.btnRedtag.setOnClickListener(v ->{
             try {
@@ -95,11 +95,11 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         readFromIntent(getIntent());
-        pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_IMMUTABLE);
+        pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_MUTABLE);
         IntentFilter tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
         tagDetected.addCategory(Intent.CATEGORY_DEFAULT);
         writingTagFilters = new IntentFilter[] {tagDetected};
-        */
+
         setContentView(binding.getRoot());
     }
     public void createMagnanakawDialog(){
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
     //stuff that deals with NFC
 
-    /*
+
     private void readFromIntent(Intent intent){
         String action = intent.getAction();
         if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(action) || NfcAdapter.ACTION_TECH_DISCOVERED.equals(action) || NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)){
@@ -256,5 +256,5 @@ public class MainActivity extends AppCompatActivity {
             nfcAdapter.disableForegroundDispatch(this);
         }
     }
-     */
+
 }
