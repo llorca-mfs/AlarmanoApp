@@ -4,9 +4,18 @@
 
     <item
         android:id="@+id/menu_redtag"
-        android:title="Red Tagger"
-        android:icon="@drawable/ic_nfc"
-        app:showAsAction="ifRoom"
+        android:title="The Red Tagger"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/menu_unitag"
+        android:title="The UniTagger"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/menu_about"
+        android:title="About"
+        app:showAsAction="never"
         />
 
 </menu>

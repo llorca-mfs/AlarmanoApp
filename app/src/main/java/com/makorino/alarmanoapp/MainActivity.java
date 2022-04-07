@@ -9,6 +9,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.nfc.FormatException;
 import android.nfc.NdefMessage;
@@ -30,6 +32,7 @@ import com.makorino.alarmanoapp.databinding.ActivityMainBinding;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,30 +55,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        //change status and toolbar color programatically
+        this.getWindow().setStatusBarColor(this.getResources().getColor(R.color.green_700));
+        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.green_500)));
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
-        final MediaPlayer mpWarning = MediaPlayer.create(this,R.raw.warning);
-        final MediaPlayer mpDing = MediaPlayer.create(this,R.raw.ding);
-
         binding.btnMagnanakaw.setOnClickListener(v ->{
-            createMagnanakawDialog();
-            mpWarning.start();
+            Toast.makeText(this, "Hello World", Toast.LENGTH_LONG).show();
         });
 
         binding.btnNotmagnanakaw.setOnClickListener(v ->{
-            createNotmagnanakawDialog();
-            mpDing.start();
+            Toast.makeText(this, "Hello Again", Toast.LENGTH_LONG).show();
         });
 
         //NFC write stuff
 
         //context = this;
+
         binding.btnRedtag.setOnClickListener(v ->{
             try {
                 if (myTag == null) {
                     Toast.makeText(this, "No Tag Available", Toast.LENGTH_LONG).show();
                 } else {
-                    write("PlainText|" + binding.etInputfield.getText().toString(), myTag);
+                    write(binding.etInputfield.getText().toString(), myTag);
                     Toast.makeText(this, "Write Success", Toast.LENGTH_LONG).show();
                 }
             }
@@ -190,8 +194,22 @@ public class MainActivity extends AppCompatActivity {
         catch(UnsupportedEncodingException e){
             Log.e("UnsupportedEncoding", e.toString());
         }
-        Toast.makeText(this, "Read the NFC tag", Toast.LENGTH_LONG).show();
         binding.tvNfccontents.setText("NFC Content: " + text);
+        checkIfMagnanakaw(text);
+    }
+
+    private void checkIfMagnanakaw(String text){
+        final MediaPlayer mpWarning = MediaPlayer.create(this,R.raw.warning);
+        final MediaPlayer mpDing = MediaPlayer.create(this,R.raw.ding);
+
+        if (text.equals("magnanakaw")){
+            createMagnanakawDialog();
+            mpWarning.start();
+        }
+        else{
+            createNotmagnanakawDialog();
+            mpDing.start();
+        }
     }
 
     private void write(String text, Tag tag) throws IOException, FormatException{
